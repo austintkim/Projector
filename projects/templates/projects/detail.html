@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Tasks</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h1>{{ project_detail.name }}</h1>
+            <p>{{ project_detail.description }}</p>
+            <h2>Tasks</h2>
+            {% if project_detail.tasks.count >= 1 %}
+                <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Assignee</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                    </thead>
+                    <tbody>
+                        {% for task in project_detail.tasks.all %}
+                            <tr>
+                                <td> {{ task.name }}</td>
+                                <td> {{ task.assignee }}</td>
+                                <td> {{ task.start_date }}</td>
+                                <td> {{ task.due_date }}</td>
+                                <td> {{ task.is_completed|yesno:"yes, no" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>"This project has no tasks"</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
