@@ -11,6 +11,9 @@
             <h1>{{ project_detail.name }}</h1>
             <p>{{ project_detail.description }}</p>
             <h2>Tasks</h2>
+            <div>
+                <p><a href="{% url 'create_task' %}">Create a new task</a></p>
+            </div>
             {% if project_detail.tasks.count >= 1 %}
                 <table>
                     <thead>
