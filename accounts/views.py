@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
+from accounts.models import Account
 from accounts.forms import SignUpForm, LogInForm
 
 
@@ -16,7 +16,7 @@ def user_signup(request):
             last_name = form.cleaned_data["last_name"]
             if password == password_confirmation:
                 # Create a new user with those values
-                user = User.objects.create_user(
+                user = Account.objects.create_user(
                     username,
                     password=password,
                     first_name = first_name,
