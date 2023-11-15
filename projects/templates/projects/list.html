@@ -1,20 +1,20 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class= "nav-items-grid">
             <ul>
                 {% if user.is_authenticated %}
                     <li>
                         <a href="{% url 'show_my_tasks' %}">My tasks</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'list_projects' %}">My projects</a>
                     </li>
                     <li>
                         <a href="{% url 'logout' %}">Logout</a>
@@ -32,9 +32,9 @@
     </header>
     <main>
         <div>
-            <h1>"My Projects"</h1>
+            <h1 class="text-color">{{ user.first_name }}'s Projects</h1>
             <div>
-                <p><a href="{% url 'create_project' %}">Create a new project</a> </p>
+                <p><a class="pink-background" href="{% url 'create_project' %}">Create a new project</a> </p>
             </div>
             {% if project_list.count >= 1 %}
                 <table>
@@ -46,13 +46,13 @@
                         {% for project in project_list %}
                         <tr>
                             <td> <a href="{% url 'show_project' project.id %}">{{ project.name }}</a></td>
-                            <td> {{ project.tasks.count }} </td>
+                            <td class="center-text"> {{ project.tasks.count }} </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             {% else %}
-                <p>"You are not assigned to any projects"</p>
+                <p class="text-color">"You do not have any projects"</p>
             {% endif %}
         </div>
     </main>

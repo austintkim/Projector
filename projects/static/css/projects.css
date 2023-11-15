@@ -1,0 +1,87 @@
+*{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.shadow-box{
+    flex-basis: 50%;
+    box-shadow: 4px 2px 4px gray;
+    padding: 0.5rem;
+}
+
+h2{
+    width: 4.5rem;
+    flex-basis: 50%;
+    box-shadow: 4px 2px 4px gray;
+    padding: 0.5rem;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items-grid{
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-column-gap: 2%;
+
+}
+
+a{
+    text-decoration: none;
+    color: darkslategray;
+    text-wrap: nowrap;
+}
+
+.text-color{
+    color: darkslategray;
+}
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+main{
+    padding: 16px;
+}
+
+footer{
+    padding: 32px 16px;
+    background: gray;
+    color: white
+
+}
+
+.center-text{
+    text-align: center;
+}
+
+nav{
+    background: lightpink;
+    border-bottom: 1px solid black;
+    padding: 16px 16px;
+}
+
+nav a{
+    color: black;
+}
+
+tr:nth-child(odd) {
+    background-color: darkgrey
+}
+
+a:hover{
+    text-decoration: underline;
+    color: gray;
+}
+
+.pink-background{
+    background-color: lightpink;
+}
+
+.gray-background{
+    background-color: lightgray;
+}

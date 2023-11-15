@@ -1,13 +1,16 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up! - Receipts</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="nav-items-grid">
             <ul>
                 {% if user.is_authenticated %}
                     <li>
@@ -22,9 +25,6 @@
                 {% else %}
                     <li>
                         <a href="{% url 'login' %}">Login</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'signup' %}">Signup</a>
                     </li>
                 {% endif %}
             </ul>

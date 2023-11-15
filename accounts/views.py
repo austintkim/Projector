@@ -12,12 +12,15 @@ def user_signup(request):
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
             password_confirmation = form.cleaned_data["password_confirmation"]
-
+            first_name = form.cleaned_data["first_name"]
+            last_name = form.cleaned_data["last_name"]
             if password == password_confirmation:
                 # Create a new user with those values
                 user = User.objects.create_user(
                     username,
                     password=password,
+                    first_name = first_name,
+                    last_name = last_name
                 )
 
                 # Login the user

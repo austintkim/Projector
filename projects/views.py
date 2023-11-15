@@ -28,7 +28,10 @@ def project_create(request):
     if request.method == "POST":
         form = ProjectForm(request.POST)
         if form.is_valid():
-            form.save()
+            project = form.save(False)
+            project.save()
+            project.owner.set([request.user])
+            project.save()
             return redirect("list_projects")
     else:
         form = ProjectForm()

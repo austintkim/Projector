@@ -1,13 +1,16 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Tasks</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="nav-items-grid">
             <ul>
                 {% if user.is_authenticated %}
                     <li>
@@ -32,11 +35,11 @@
     </header>
     <main>
         <div>
-            <h1>{{ project_detail.name }}</h1>
-            <p>{{ project_detail.description }}</p>
+            <h1> <span class="shadow-box">{{ project_detail.name }}</span></h1>
+            <span class="gray-background">{{ project_detail.description }}</span>
             <h2>Tasks</h2>
             <div>
-                <p><a href="{% url 'create_task' %}">Create a new task</a></p>
+                <p><a class="pink-background" href="{% url 'create_task' project_detail.id %}">Create a new task</a></p>
             </div>
             {% if project_detail.tasks.count >= 1 %}
                 <table>
@@ -46,21 +49,23 @@
                         <th>Start date</th>
                         <th>Due date</th>
                         <th>Is completed</th>
+                        <th>Notes</th>
                     </thead>
                     <tbody>
                         {% for task in project_detail.tasks.all %}
                             <tr>
-                                <td> {{ task.name }}</td>
-                                <td> {{ task.assignee }}</td>
-                                <td> {{ task.start_date }}</td>
-                                <td> {{ task.due_date }}</td>
-                                <td> {{ task.is_completed|yesno:"yes, no" }}</td>
+                                <td>{{ task.name }}</td>
+                                <td>{{ task.assignee }}</td>
+                                <td>{{ task.start_date }}</td>
+                                <td>{{ task.due_date }}</td>
+                                <td>{{ task.is_completed|yesno:"yes, no" }}</td>
+                                <td>{{ task.notes }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             {% else %}
-                <p>"This project has no tasks"</p>
+                <p class="text_color">This project has no tasks</p>
             {% endif %}
         </div>
     </main>
