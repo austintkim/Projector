@@ -9,7 +9,7 @@ class TaskAdmin(admin.ModelAdmin):
         "name",
         "start_date",
         "due_date",
-        "is_completed",
-        "get_project",
+        "status",
+        "project",
         "assignee",
     ]

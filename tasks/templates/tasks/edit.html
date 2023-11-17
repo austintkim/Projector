@@ -1,13 +1,16 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add notes</title>
+    <title>Edit a task</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class= "nav-items-grid">
             <ul>
                 {% if user.is_authenticated %}
                     <li>
@@ -32,7 +35,7 @@
     </header>
     <main>
         <div>
-            <h1>Add notes to this task</h1>
+            <h1>Edit Task</h1>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}

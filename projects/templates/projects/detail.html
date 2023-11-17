@@ -48,17 +48,29 @@
                         <th>Assignee</th>
                         <th>Start date</th>
                         <th>Due date</th>
-                        <th>Is completed</th>
+                        <th>Status</th>
                         <th>Notes</th>
                     </thead>
                     <tbody>
                         {% for task in project_detail.tasks.all %}
                             <tr>
-                                <td>{{ task.name }}</td>
+                                <td>
+                                    <div>
+                                        <div class="tooltip">
+                                        {{ task.name }}
+                                        <div class="tooltiptext">
+                                        {% if user == project_detail.owner %}
+                                            <a href="{% url 'edit_task' task.id %}">Edit</a>
+                                            <a href="{% url 'delete_task' task.id %}">Delete</a>
+                                            {% endif %}
+                                        </div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{{ task.assignee }}</td>
                                 <td>{{ task.start_date }}</td>
                                 <td>{{ task.due_date }}</td>
-                                <td>{{ task.is_completed|yesno:"yes, no" }}</td>
+                                <td class="center-text">{{ task.get_status_display}}</td>
                                 <td>{{ task.notes }}</td>
                             </tr>
                         {% endfor %}

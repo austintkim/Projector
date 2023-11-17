@@ -3,6 +3,12 @@ from django.conf import settings
 from projects.models import Project
 from datetime import date
 
+status_choices = (
+    ("1", "Not Started"),
+    ("2", "In Progress"),
+    ("3", "Complete")
+)
+
 
 
 # Create your models here.
@@ -11,10 +17,12 @@ class Task(models.Model):
     start_date = models.DateField(null = True, default = date.today)
     due_date = models.DateField(null = True, default = date.today)
     notes = models.TextField(null = True, blank = True)
-    is_completed = models.BooleanField(default = False)
-    project = models.ManyToManyField(
+    status = models.CharField(max_length=11, choices=status_choices, default='1')
+    project = models.ForeignKey(
         Project,
         related_name="tasks",
+        on_delete=models.CASCADE,
+        null=True
     )
     assignee = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -25,6 +33,3 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_project(self):
-        return "\n".join([p.name for p in self.project.all()])

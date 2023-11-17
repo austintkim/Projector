@@ -41,12 +41,26 @@
                     <thead>
                         <th>Name</th>
                         <th>Number of tasks</th>
+                        <th>Status</th>
                     </thead>
                     <tbody>
                         {% for project in project_list %}
                         <tr>
-                            <td> <a href="{% url 'show_project' project.id %}">{{ project.name }}</a></td>
+                            <td>
+                                <div>
+                                    <div class="tooltip">
+                                        <a href="{% url 'show_project' project.id %}">{{ project.name }}</a>
+                                        {% if user == project.owner %}
+                                        <div class="tooltiptext">
+                                            <a href="{% url 'edit_project' project.id %}">Edit</a>
+                                            <a href="{% url 'delete_project' project.id %}">Delete</a>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
                             <td class="center-text"> {{ project.tasks.count }} </td>
+                            <td class="center-text">{{ project.get_status_display }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

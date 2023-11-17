@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete a task</title>
+    <title>Add or edit notes</title>
     <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 </head>
 <body>
@@ -35,10 +35,11 @@
     </header>
     <main>
         <div>
-            <h1>Are you sure?</h1>
+            <h1>Add notes to or edit notes for this task</h1>
             <form method="post">
                 {% csrf_token %}
-                <button>Delete</button>
+                {{ form.as_p }}
+                <button>Save</button>
             </form>
         </div>
     </main>

@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Assigned Tasks</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 </head>
 <body>
     <header>
@@ -34,33 +37,38 @@
                 <table>
                     <thead>
                         <th>Name</th>
+                        <th>Project</th>
+                        <th>Owner</th>
                         <th>Start date</th>
                         <th>Due date</th>
-                        <th>Is completed</th>
+                        <th>Status</th>
                         <th>Notes</th>
                     </thead>
                     <tbody>
                         {% for task in task_list %}
                         <tr>
-                            <td>{{ task.name }}</td>
+                            <td>
+                                <div>
+                                    <div class="tooltip">
+                                    {{ task.name }}
+                                    <div class="tooltiptext">
+                                        {% if task.notes %}
+                                        <a href="{% url 'add_notes' task.id %}">Edit notes</a>
+                                        {% else %}
+                                        <a href="{% url 'add_notes' task.id %}">Add notes</a>
+                                        {% endif %}
+                                    </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{ task.project.name }}</td>
+                            <td>{{ task.project.owner }}</td>
                             <td>{{ task.start_date }}</td>
                             <td>{{ task.due_date }}</td>
-                            <td>{{ task.is_completed|yesno:"yes, no" }}</td>
+                            <td class="center-text">{{ task.get_status_display }}</td>
                             {% if task.notes %}
                                 <td>{{ task.notes }}</td>
-                            {% else %}
-                            <td>
-                                <a href = "{% url 'add_notes' task.id %}">Add notes here!</a>
-                            </td>
                             {% endif %}
-                            {% if task.notes %}
-                                <td>
-                                    <a href = "{% url 'add_notes' task.id %}">Edit notes here!</a>
-                                </td>
-                            {% endif %}
-                            <td>
-                                <a href = "{% url 'delete_task' task.id %}">Delete task</a>
-                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
