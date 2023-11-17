@@ -22,15 +22,13 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         null=True
     )
-    team_member = models.ForeignKey(
+    team_member = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        related_name="projects1",
-        on_delete=models.CASCADE,
-        null=True
+        related_name="projects1"
     )
 
     def __str__(self):
         return self.name
 
-    def get_owner(self):
-        return "\n".join([user.username for user in self.owner.all()])
+    def get_team_member(self):
+        return ", ".join([f"{user.first_name} {user.last_name}"for user in self.team_member.all()])

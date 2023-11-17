@@ -37,6 +37,19 @@
         <div>
             <h1> <span class="shadow-box">{{ project_detail.name }}</span></h1>
             <span class="gray-background">{{ project_detail.description }}</span>
+            <table>
+                <thead>
+                    <th>Owner</th>
+                    <th>Team Members</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ project_detail.owner }}</td>
+                        <td>{{ project_detail.get_team_member}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
             <h2>Tasks</h2>
             <div>
                 <p><a class="pink-background" href="{% url 'create_task' project_detail.id %}">Create a new task</a></p>
@@ -58,12 +71,12 @@
                                     <div>
                                         <div class="tooltip">
                                         {{ task.name }}
-                                        <div class="tooltiptext">
                                         {% if user == project_detail.owner %}
+                                        <div class="tooltiptext">
                                             <a href="{% url 'edit_task' task.id %}">Edit</a>
                                             <a href="{% url 'delete_task' task.id %}">Delete</a>
-                                            {% endif %}
                                         </div>
+                                        {% endif %}
                                         </div>
                                     </div>
                                 </td>
