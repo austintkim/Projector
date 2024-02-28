@@ -1,0 +1,127 @@
+*{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.shadow-box{
+    flex-basis: 50%;
+    box-shadow: 4px 2px 4px gray;
+    padding: 0.5rem;
+}
+
+h2{
+    width: 4.5rem;
+    flex-basis: 50%;
+    box-shadow: 4px 2px 4px gray;
+    padding: 0.5rem;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items-grid{
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-column-gap: 2%;
+
+}
+
+a{
+    text-decoration: none;
+    color: darkslategray;
+    text-wrap: nowrap;
+}
+
+.text-color{
+    color: darkslategray;
+}
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+}
+
+main{
+    flex: 1;
+    padding: 16px;
+}
+
+footer{
+    padding: 32px 16px;
+    background: gray;
+    color: white
+
+}
+
+.center-text{
+    text-align: center;
+}
+
+nav{
+    background: lightpink;
+    border-bottom: 1px solid black;
+    padding: 16px 16px;
+}
+
+nav a{
+    color: black;
+}
+
+thead{
+    background: pink;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+
+
+a:hover{
+    text-decoration: underline;
+    color: gray;
+}
+
+.pink-background{
+    background-color: lightpink;
+}
+
+.gray-background{
+    background-color: lightgray;
+}
+
+/* .tooltip:hover {
+    text-decoration: underline;
+    color: gray;
+} */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: lightpink;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -60px;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
