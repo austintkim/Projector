@@ -2,9 +2,15 @@
 
 # High Level Overview
 
-Projector is an application that allows a user to create projects and delegate tasks to other users.
+Projector is a project management application that differentiates user privileges based on the role that user plays on that project. Project owners (managers) have editing/deleting privileges, while team members (ICs) have viewing privileges and can add/edit thier own task notes.
 
-## Getting Started
+![alt text](image.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+# Getting Started
 1. Clone the following repository onto your local computer:
 ```
 git clone https://github.com/austintkim/Projector.git
