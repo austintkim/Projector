@@ -16,32 +16,34 @@ Projector is a project management application that differentiates user privilege
 git clone https://github.com/austintkim/Projector.git
 ````
 
-2. Run the following command in your terminal to install the relevant files and packages for this project:
+2. CD into new project directory
+
+3. Run the following command in your terminal to install the relevant files and packages for this project:
 ```
 pip install --upgrade pip
 pip install - r requirements.txt
 ```
 
-3. Create a Django superuser
+4. Create a Django superuser
 ```
 python manage.py createsuperuser
 ```
 
-4. Answer the prompts that populate in your terminal - it will ask for:
+5. Answer the prompts that populate in your terminal - it will ask for:
      - A **required** username
      - An optional email address
      - A **required** password
      - A **required** password confirmation
 
-5. Run the following command to start your local development server:
+6. Run the following command to start your local development server:
 ```
 python manage.py runserver
 ```
 
-6. Type localhost:8000/admin/ into your browser to access Django admin:
+7. Type localhost:8000/admin/ into your browser to access Django admin:
     - Log in as a superuser using the credentials you input earlier
     - Feel free to add and remove Users and Groups as you please
 
-7. Type localhost:8000 into your browser to access the application
+8. View the project in the browser: http://localhost:8000/
 
-8. Explore and enjoy!
+9. Explore and enjoy!
