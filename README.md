@@ -2,7 +2,7 @@
 
 ## High Level Overview
 
-Projector is a project management application that differentiates user privileges based on the role that user plays on that project. Project owners (managers) have editing/deleting privileges, while team members (ICs) have viewing privileges and can add/edit thier own task notes.
+Projector is a project management application that differentiates user privileges based on the role that user plays on that project. Project owners (managers) have editing/deleting privileges, while team members (ICs) have viewing privileges and can add/edit their own task notes.
 
 ![alt text](image.png)
 
